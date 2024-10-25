@@ -1,101 +1,91 @@
-import Image from "next/image";
+const logoUrl = "https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/dvla%20logo.jpeg?alt=media&token=9da938bd-45d2-4107-a1de-357eccf600b0";
 
-export default function Home() {
+function SignIn() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={styles.container}>
+      <img src={logoUrl} alt="Your Company Logo" style={styles.logo} />
+      <h2 style={styles.title}>Sign in to your account</h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <form style={styles.form}>
+        <div style={styles.formGroup}>
+          <label htmlFor="email" style={styles.label}>Email address</label>
+          <input type="email" id="email" name="email" required style={styles.input} />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div style={styles.formGroup}>
+          <label htmlFor="password" style={styles.label}>Password</label>
+          <input type="password" id="password" name="password" required style={styles.input} />
+        </div>
+
+        <button type="submit" style={styles.button}>Sign in</button>
+      </form>
     </div>
   );
 }
+
+
+const styles = {
+  container: {
+    maxWidth: '400px',
+    width: '100%',
+    padding: '20px',
+    margin: '0 auto',
+    backgroundColor: '#04A84A',
+    borderRadius: '8',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    textAlign: 'center',
+  },
+  logo: {
+    height: '100px',
+    margin: '0 auto',
+
+  },
+  title: {
+    fontSize: '1.5rem',
+    color: '#111827',
+    marginTop: '20px',
+  },
+  form: {
+    marginTop: '20px',
+  },
+  formGroup: {
+    marginTop: '20px',
+    textAlign: 'left',
+  },
+  label: {
+    fontSize: '0.875rem',
+    color: '#374151',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    marginTop: '5px',
+    border: '1px solid #d1d5db',
+    borderRadius: '4px',
+    fontSize: '0.875rem',
+    color: '#111827',
+  },
+  button: {
+    width: '100%',
+    padding: '10px',
+    marginTop: '20px',
+    backgroundColor: '#000',
+    color: 'white',
+    fontSize: '0.875rem',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+  buttonHover: {
+    backgroundColor: '#04A84A',
+  },
+  text: {
+    marginTop: '10px',
+    fontSize: '0.875rem',
+    color: '#6b7280',
+  },
+};
+
+
+export default SignIn;
