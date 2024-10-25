@@ -1,163 +1,99 @@
-const logoUrl ="https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/logo.jpg?alt=media&token=ffa9b8be-d4c4-4542-9b4e-bcf23a043c0c";
+const logoUrl = "https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/logo.jpg?alt=media&token=ffa9b8be-d4c4-4542-9b4e-bcf23a043c0c";
 
 function SignIn() {
-
-return (
-
-<div style={styles.container}>
-
-<img src={logoUrl} alt="" style={styles.logo} />
-
-<form style={styles.form}>
-
-<div style={styles.formGroup}>
-
-<input type="email" id="email" name="email"  required placeholder= 'Email' style={styles.input} />
-
-</div>
-
-<div style={styles.formGroup}>
-
-<input type="password" id="password" name="password" required  placeholder = 'Password'style={styles.input} />
-
-</div>
-
-<button type="submit" style={styles.button}>Login</button>
-
-</form>
-
-</div>
-
-);
-
+  return (
+    <div style={styles.wrapper}>
+      <div style={styles.container}>
+        <img src={logoUrl} alt="Logo" style={styles.logo} />
+        <form style={styles.form}>
+          <div style={styles.formGroup}>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Email"
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.formGroup}>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder="Password"
+              style={styles.input}
+            />
+          </div>
+          <button type="submit" style={styles.button}>Login</button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 const styles = {
+  wrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: '#04A84A',
+  },
 
-container: {
+  container: {
+    maxWidth: '600px',
+    width: '100%',
+    padding: '50px',
+    backgroundColor: '#fff',
+    borderRadius: '12px',
+    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+    textAlign: 'center',
+  },
 
-maxWidth: '600px',
+  logo: {
+    height: '80px',
+    marginBottom: '20px auto',
+    margin: '0 auto 20px auto',
+    display:'block',
+  },
 
-width: '100%',
+  form: {
+    marginTop: '20px',
+  },
 
-padding: '20px',
+  formGroup: {
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
 
-margin: '50px auto ',
+  input: {
+    width: '90%',
+    padding: '10px',
+    border: '1px solid #d1d5db',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    color: '#333',
+    outline: 'none',
+  },
 
-backgroundColor: '#04A84A',
+  button: {
+    width: '50%',
+    padding: '12px',
+    backgroundColor: '#000',
+    color: 'white',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+  },
 
-borderRadius: '10px',
-
-boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-
-textAlign: 'center',
-
-marginBottom:'90px',
-
-},
-
-logo: {
-
-height: '100px',
-
-margin: '0 auto',
-
-},
-
-title: {
-
-fontSize: '1.5rem',
-
-color: '#000',
-
-marginTop: '20px',
-
-},
-
-form: {
-
-marginTop: '20px',
-
-margin: '50px auto ',
-
-},
-
-formGroup: {
-
-marginTop: '20px',
-
-textAlign: 'left',
-
-textAlign: 'center',
-
-},
-
-label: {
-
-fontSize: '0.875rem',
-
-color: '#000',
-
-},
-
-input: {
-
-width: '50%',
-
-padding: '10px',
-
-marginTop: '5px',
-
-border: '1px  #d1d5db',
-
-borderRadius: '14px',
-
-fontSize: '0.875rem',
-
-color: '#000',
-
-},
-
-button: {
-
-width: '30%',
-
-padding: '10px',
-
-marginTop: '20px',
-
-backgroundColor: '#000',
-
-color: 'white',
-
-fontSize: '0.875rem',
-
-fontWeight: 'bold',
-
-border: 'none',
-
-borderRadius: '30px',
-
-cursor: 'pointer',
-
-},
-
-buttonHover: {
-
-backgroundColor: '#04A84A',
-
-},
-
-text: {
-
-marginTop: '10px',
-
-fontSize: '0.875rem',
-
-color: '#6b7280',
-
-},
-
+  buttonHover: {
+    backgroundColor: '#04A84A',
+  },
 };
 
 export default SignIn;
