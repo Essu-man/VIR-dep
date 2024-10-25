@@ -1,9 +1,10 @@
+const logoUrl = "https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/logo.jpg?alt=media&token=ffa9b8be-d4c4-4542-9b4e-bcf23a043c0c";
 
 function SignIn() {
   return (
     <div style={styles.wrapper}>
       <div style={styles.container}>
-        <img src="/public/LOGO_DVLA.png" alt="Logo" style={styles.logo} />
+        <img src={logoUrl} alt="Logo" style={styles.logo} />
         <form style={styles.form}>
           <div style={styles.formGroup}>
             <input
@@ -53,8 +54,8 @@ const styles = {
 
   logo: {
     height: '80px',
-    margin: '0 auto 20px auto',
-    display: 'block',
+    margin: '0 auto 20px auto', // Centers the logo horizontally and adds spacing below
+    display: 'block', // Ensures the image takes the full width defined by the container
   },
 
   form: {
@@ -87,6 +88,10 @@ const styles = {
     borderRadius: '20px',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
+  },
+
+  buttonHover: {
+    backgroundColor: '#04A84A',
   },
 };
 
