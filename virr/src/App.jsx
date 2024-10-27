@@ -1,10 +1,10 @@
-import './App.css';
-import SignIn from './Hero'; // Adjust this path if necessary
+import Hero from './Hero';
+
 
 function App() {
   return (
     <div className="app-container">
-      <SignIn />
+      <Hero />
     </div>
   );
 }
