@@ -1,4 +1,4 @@
-import logo from './assets/react.svg';
+import logo from './assets/dv-logo.png';
 
 function Hero() {
   return (
@@ -70,7 +70,7 @@ const styles = {
   },
 
   input: {
-    width: '100%',
+    width: '90%',
     padding: '10px',
     border: '1px solid #d1d5db',
     borderRadius: '8px',
