@@ -1,12 +1,22 @@
+
+import { useNavigate } from 'react-router-dom';
 import logo from './assets/dv-logo.png';
 
 function Hero() {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate('/virr/src/Components/Dashboard.jsx');
+  };
+
   return (
     <div style={styles.wrapper}>
       <div style={styles.container}>
         <img src={logo} alt="Logo" style={styles.logo} />
-        <form style={styles.form}>
+        <form style={styles.form} onSubmit={handleLogin}>
           <div style={styles.formGroup}>
+            <label style={styles.label}>VIR</label>
             <input
               type="email"
               id="email"
@@ -17,6 +27,7 @@ function Hero() {
             />
           </div>
           <div style={styles.formGroup}>
+            <label style={styles.label}>VIR</label>
             <input
               type="password"
               id="password"
@@ -67,6 +78,15 @@ const styles = {
 
   formGroup: {
     marginBottom: '20px',
+    textAlign: 'left',
+  },
+
+  label: {
+    display: 'block',
+    fontSize: '0.9rem',
+    color: '#333',
+    marginBottom: '5px',
+    fontWeight: 'bold',
   },
 
   input: {

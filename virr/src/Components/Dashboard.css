@@ -1,4 +1,3 @@
-/* Global styles */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@
     height: 100vh;
   }
 
-  /* Top bar styles */
   .top-bar {
     width: 100%;
     height: 60px;
