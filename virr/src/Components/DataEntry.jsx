@@ -38,7 +38,7 @@ const ChangeOwnership = () => {
               <Select.Option value="commercial">Commercial</Select.Option>
             </Select>
           </Form.Item>
-          {/* Add more fields as shown in your design */}
+
         </Form>
       ),
     },
@@ -78,7 +78,7 @@ const ChangeOwnership = () => {
           <Form.Item label="Fuel Type" name="additionalFuel">
             <Input />
           </Form.Item>
-          {/* Add more fields as necessary */}
+
         </Form>
       ),
     },
