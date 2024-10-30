@@ -1,11 +1,20 @@
+
+import { useNavigate } from 'react-router-dom';
 import logo from './assets/dv-logo.png';
 
 function Hero() {
+  const navigate = useNavigate();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    navigate('/Dashboard');
+  };
+
   return (
     <div style={styles.wrapper}>
       <div style={styles.container}>
         <img src={logo} alt="Logo" style={styles.logo} />
-        <form style={styles.form}>
+        <form style={styles.form} onSubmit={handleLogin}>
           <div style={styles.formGroup}>
             <input
               type="email"
@@ -45,7 +54,6 @@ const styles = {
     justifyContent: 'center',
     backgroundColor: '#04A84A',
   },
-
   container: {
     maxWidth: '400px',
     width: '90%',
@@ -55,20 +63,16 @@ const styles = {
     boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
     textAlign: 'center',
   },
-
   logo: {
     height: '80px',
     marginBottom: '20px',
   },
-
   form: {
     marginTop: '20px',
   },
-
   formGroup: {
     marginBottom: '20px',
   },
-
   input: {
     width: '90%',
     padding: '10px',
@@ -78,7 +82,6 @@ const styles = {
     color: '#333',
     outline: 'none',
   },
-
   button: {
     width: '100%',
     padding: '12px',
