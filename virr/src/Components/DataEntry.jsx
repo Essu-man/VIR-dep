@@ -29,9 +29,20 @@ const ChangeOwnership = () => {
           <Form.Item label="Model Type" name="currentModel">
             <Input />
           </Form.Item>
-          <Form.Item label="Fuel Type" name="currentFuel">
+          <Form.Item label="Cubic Capacity" name="currentCubic">
             <Input />
           </Form.Item>
+          <Form.Item label="No. of Cylinders" name="currentCylinder">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Fuel Type" name="currentFuel">
+
+            <Input />
+          </Form.Item>
+          <Form.Item label="Phone" name="currentPhone">
+            <Input />
+          </Form.Item>
+
           <Form.Item label="Purpose" name="currentPurpose">
             <Select>
               <Select.Option value="private">Private</Select.Option>
@@ -43,7 +54,7 @@ const ChangeOwnership = () => {
       ),
     },
     {
-      title: 'New Owner Information',
+      title: 'Previous Owner Information',
       content: (
         <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
           <Form.Item label="Name" name="newName">
@@ -58,7 +69,6 @@ const ChangeOwnership = () => {
           <Form.Item label="Fuel Type" name="newFuel">
             <Input />
           </Form.Item>
-          {/* Add additional fields as needed */}
         </Form>
       ),
     },

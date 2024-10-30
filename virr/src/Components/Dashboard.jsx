@@ -60,7 +60,7 @@ const Dashboard = () => {
         </div>
       </aside>
       <main style={styles.mainContent}>
-        <h1>Welcome to the Dashboard</h1>
+        <h1></h1>
       </main>
     </div>
   );
