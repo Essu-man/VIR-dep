@@ -1,10 +1,11 @@
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import React from 'react';
+import React, { useState } from 'react';
+import logo from '../assets/dv-logo.png';
 
 const Dashboard = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -17,37 +18,44 @@ const Dashboard = () => {
 
   return (
     <div style={styles.dashboard}>
-      <header style={styles.topBar}>
-        <div style={styles.logo}>VIR</div>
+      <aside style={styles.sidebar}>
+        {/* Logo */}
+        <img src={logo} alt="VIR Logo" style={styles.logo} />
 
-        {/* Material UI Menu Button */}
-        <Button
-          id="basic-button"
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-          style={styles.menuButton}
-        >
-          Dashboard
-        </Button>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          <MenuItem onClick={handleClose}>Data Entry</MenuItem>
-          <MenuItem onClick={handleClose}>Customization</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-      </header>
+        {/* Vertical Navigation Buttons */}
+        <div style={styles.navButtons}>
+          <Button style={styles.navButton}>Data Entry</Button>
+          <Button style={styles.navButton}>Customization</Button>
 
-
-
+          {/* Dropdown Menu */}
+          <Button
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+            style={styles.navButton}
+          >
+            Options
+          </Button>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
+        </div>
+      </aside>
+      <main style={styles.mainContent}>
+        <h1>Welcome to the Dashboard</h1>
+        <p>Select a menu item to get started.</p>
+      </main>
     </div>
   );
 };
@@ -57,52 +65,41 @@ const styles = {
     display: 'flex',
     height: '100vh',
   },
-  topBar: {
-    width: '100%',
-    height: '60px',
+  sidebar: {
+    width: '220px',
     backgroundColor: '#04A84A',
     color: '#ffffff',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 20px',
-    fontSize: '24px',
-    fontWeight: 'bold',
+    paddingTop: '20px',
+    boxSizing: 'border-box',
   },
   logo: {
-    fontWeight: 'bold',
+    height: '60px',
+    marginBottom: '30px',
   },
-  menuButton: {
+  navButtons: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+    width: '80%', // Controls width of the buttons
+  },
+  navButton: {
     color: '#ffffff',
     fontSize: '1rem',
     fontWeight: 'bold',
-  },
-  sidebar: {
-    width: '200px',
     backgroundColor: '#004d40',
-    color: '#ffffff',
-    paddingTop: '20px',
+    borderRadius: '8px',
+    padding: '10px 20px',
+    border: '1px solid #ffffff',
+    width: '100%', // Full width within the navButtons container
+    transition: 'background-color 0.3s',
+    textAlign: 'center',
   },
-  menu: {
-    listStyle: 'none',
-    padding: 0,
-  },
-  menuItem: {
-    padding: '15px 20px',
-    fontSize: '18px',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s',
-  },
-  content: {
+  mainContent: {
     flex: 1,
     padding: '20px',
-  },
-  heading: {
-    marginBottom: '10px',
-  },
-  paragraph: {
-    fontSize: '16px',
-    color: '#555',
   },
 };
 
