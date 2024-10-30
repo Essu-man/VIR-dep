@@ -1,81 +1,108 @@
-import { Button, Cascader, DatePicker, Form, Input, InputNumber, Mentions, Segmented, Select, TreeSelect } from 'antd';
+import { Button, Form, Input, Select, Steps } from 'antd';
 import { useState } from 'react';
 
 
-const { RangePicker } = DatePicker;
+const { Step } = Steps;
 
 const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
+  labelCol: { span: 8 },
+  wrapperCol: { span: 16 },
 };
 
-const App = () => {
-  const [componentVariant, setComponentVariant] = useState('filled');
+const ChangeOwnership = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  const onFormVariantChange = ({ variant }) => {
-    setComponentVariant(variant);
-  };
+  const nextStep = () => setCurrentStep((prev) => prev + 1);
+  const prevStep = () => setCurrentStep((prev) => prev - 1);
+
+  const steps = [
+    {
+      title: 'Current Owner Information',
+      content: (
+        <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
+          <Form.Item label="Name" name="currentName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Address" name="currentAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Model Type" name="currentModel">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Fuel Type" name="currentFuel">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Purpose" name="currentPurpose">
+            <Select>
+              <Select.Option value="private">Private</Select.Option>
+              <Select.Option value="commercial">Commercial</Select.Option>
+            </Select>
+          </Form.Item>
+          {/* Add more fields as shown in your design */}
+        </Form>
+      ),
+    },
+    {
+      title: 'New Owner Information',
+      content: (
+        <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
+          <Form.Item label="Name" name="newName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Address" name="newAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Model Type" name="newModel">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Fuel Type" name="newFuel">
+            <Input />
+          </Form.Item>
+          {/* Add additional fields as needed */}
+        </Form>
+      ),
+    },
+    {
+      title: 'Additional Owner Information',
+      content: (
+        <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
+          <Form.Item label="Name" name="additionalName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Address" name="additionalAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Model Type" name="additionalModel">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Fuel Type" name="additionalFuel">
+            <Input />
+          </Form.Item>
+          {/* Add more fields as necessary */}
+        </Form>
+      ),
+    },
+  ];
 
   return (
-    <Form
-      {...formItemLayout}
-      onValuesChange={onFormVariantChange}
-      style={{ maxWidth: 600 }}
-      initialValues={{ variant: componentVariant }}
-    >
-      <Form.Item label="Form variant" name="variant">
-        <Segmented options={['outlined', 'filled', 'borderless']} />
-      </Form.Item>
-
-      <Form.Item label="Input" name="Input" rules={[{ required: true, message: 'Please input!' }]}>
-        <Input />
-      </Form.Item>
-
-      <Form.Item label="InputNumber" name="InputNumber" rules={[{ required: true, message: 'Please input!' }]}>
-        <InputNumber style={{ width: '100%' }} />
-      </Form.Item>
-
-      <Form.Item label="TextArea" name="TextArea" rules={[{ required: true, message: 'Please input!' }]}>
-        <Input.TextArea />
-      </Form.Item>
-
-      <Form.Item label="Mentions" name="Mentions" rules={[{ required: true, message: 'Please input!' }]}>
-        <Mentions />
-      </Form.Item>
-
-      <Form.Item label="Select" name="Select" rules={[{ required: true, message: 'Please input!' }]}>
-        <Select />
-      </Form.Item>
-
-      <Form.Item label="Cascader" name="Cascader" rules={[{ required: true, message: 'Please input!' }]}>
-        <Cascader />
-      </Form.Item>
-
-      <Form.Item label="TreeSelect" name="TreeSelect" rules={[{ required: true, message: 'Please input!' }]}>
-        <TreeSelect />
-      </Form.Item>
-
-      <Form.Item label="DatePicker" name="DatePicker" rules={[{ required: true, message: 'Please input!' }]}>
-        <DatePicker />
-      </Form.Item>
-
-      <Form.Item label="RangePicker" name="RangePicker" rules={[{ required: true, message: 'Please input!' }]}>
-        <RangePicker />
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+    <div style={{ width: '60%', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center' }}>Change of Ownership</h2>
+      <Steps current={currentStep} size="small">
+        {steps.map((item) => (
+          <Step key={item.title} title={item.title} />
+        ))}
+      </Steps>
+      <div style={{ marginTop: 20 }}>{steps[currentStep].content}</div>
+      <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between' }}>
+        {currentStep > 0 && <Button onClick={prevStep}>Previous</Button>}
+        {currentStep < steps.length - 1 ? (
+          <Button type="primary" onClick={nextStep}>Next</Button>
+        ) : (
+          <Button type="primary">Save</Button>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default App;
+export default ChangeOwnership;
