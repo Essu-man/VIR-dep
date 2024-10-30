@@ -1,8 +1,9 @@
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/dv-logo.png';
+
 
 const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -12,6 +13,7 @@ const Dashboard = () => {
     setAnchorEl(event.currentTarget);
   };
 
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -19,15 +21,13 @@ const Dashboard = () => {
   return (
     <div style={styles.dashboard}>
       <aside style={styles.sidebar}>
-        {/* Logo */}
         <img src={logo} alt="VIR Logo" style={styles.logo} />
 
-        {/* Vertical Navigation Buttons */}
         <div style={styles.navButtons}>
           <Button style={styles.navButton}>Data Entry</Button>
           <Button style={styles.navButton}>Customization</Button>
+          <Button style={styles.navButton}>Logout</Button>
 
-          {/* Dropdown Menu */}
           <Button
             id="basic-button"
             aria-controls={open ? 'basic-menu' : undefined}
@@ -54,7 +54,6 @@ const Dashboard = () => {
       </aside>
       <main style={styles.mainContent}>
         <h1>Welcome to the Dashboard</h1>
-        <p>Select a menu item to get started.</p>
       </main>
     </div>
   );
@@ -72,8 +71,10 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: '20px',
+    paddingTop: '30px',
     boxSizing: 'border-box',
+    borderRadius:'40px',
+    height: '650px',
   },
   logo: {
     height: '60px',
@@ -83,17 +84,17 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '15px',
-    width: '80%', // Controls width of the buttons
+    width: '80%',
   },
   navButton: {
-    color: '#ffffff',
+    color: '#000',
     fontSize: '1rem',
     fontWeight: 'bold',
-    backgroundColor: '#004d40',
+    backgroundColor: '#f0f0ff',
     borderRadius: '8px',
     padding: '10px 20px',
     border: '1px solid #ffffff',
-    width: '100%', // Full width within the navButtons container
+    width: '100%',
     transition: 'background-color 0.3s',
     textAlign: 'center',
   },
