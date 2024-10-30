@@ -20,7 +20,7 @@ const ChangeOwnership = () => {
       title: 'Current Owner Information',
       content: (
         <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
-          <Form.Item label="Name" name="currentName">
+          <Form.Item label="Full Name" name="currentFullName">
             <Input />
           </Form.Item>
           <Form.Item label="Address" name="currentAddress">
@@ -36,13 +36,11 @@ const ChangeOwnership = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Fuel Type" name="currentFuel">
-
             <Input />
           </Form.Item>
           <Form.Item label="Phone" name="currentPhone">
             <Input />
           </Form.Item>
-
           <Form.Item label="Purpose" name="currentPurpose">
             <Select>
               <Select.Option value="private">Private</Select.Option>
