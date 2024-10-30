@@ -1,11 +1,13 @@
+// Dashboard.jsx
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/dv-logo.png';
 
-
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -13,9 +15,12 @@ const Dashboard = () => {
     setAnchorEl(event.currentTarget);
   };
 
-
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleDataEntryNavigation = () => {
+    navigate('/virr/src/Components/DataEntry.jsx');
   };
 
   return (
@@ -24,7 +29,9 @@ const Dashboard = () => {
         <img src={logo} alt="VIR Logo" style={styles.logo} />
 
         <div style={styles.navButtons}>
-          <Button style={styles.navButton}>Data Entry</Button>
+          <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
+            Data Entry
+          </Button>
           <Button style={styles.navButton}>Customization</Button>
           <Button style={styles.navButton}>Logout</Button>
 
@@ -36,7 +43,7 @@ const Dashboard = () => {
             onClick={handleClick}
             style={styles.navButton}
           >
-            Options
+            ...
           </Button>
           <Menu
             id="basic-menu"
@@ -58,6 +65,9 @@ const Dashboard = () => {
     </div>
   );
 };
+
+
+
 
 const styles = {
   dashboard: {
