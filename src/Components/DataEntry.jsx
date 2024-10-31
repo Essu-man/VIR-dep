@@ -18,13 +18,21 @@ const ChangeOwnership = () => {
   const nextStep = () => setCurrentStep((prev) => prev + 1);
   const prevStep = () => setCurrentStep((prev) => prev - 1);
 
-  const goBackToDashboard = () => navigate('/dashboard'); // Adjust route as per your app
+  const goBackToDashboard = () => navigate('/dashboard');
 
   const steps = [
     {
       title: 'Current Owner Information',
       content: (
-        <Form {...formItemLayout} style={{ backgroundColor: '#F5F5F5', padding: 20, borderRadius: 12, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+        <Form
+          {...formItemLayout}
+          style={{
+            backgroundColor: '#F5F5F5',
+            padding: 20,
+            borderRadius: 12,
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+          }}
+        >
           <Form.Item label="Full Name" name="currentFullName">
             <Input />
           </Form.Item>
@@ -43,14 +51,21 @@ const ChangeOwnership = () => {
           <Form.Item label="TIN" name="currentTin">
             <Input />
           </Form.Item>
-
         </Form>
       ),
     },
     {
       title: 'Previous Owner Information',
       content: (
-        <Form {...formItemLayout} style={{ backgroundColor: '#F5F5F5', padding: 20, borderRadius: 12, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+        <Form
+          {...formItemLayout}
+          style={{
+            backgroundColor: '#F5F5F5',
+            padding: 20,
+            borderRadius: 12,
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+          }}
+        >
           <Form.Item label="Full Name" name="previousFullName">
             <Input />
           </Form.Item>
@@ -75,11 +90,19 @@ const ChangeOwnership = () => {
     {
       title: 'Vehicle Information',
       content: (
-        <Form {...formItemLayout} style={{ backgroundColor: '#F5F5F5', padding: 20, borderRadius: 12, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+        <Form
+          {...formItemLayout}
+          style={{
+            backgroundColor: '#F5F5F5',
+            padding: 20,
+            borderRadius: 12,
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+          }}
+        >
           <Form.Item label="Transfer Date" name="transferDate">
             <Input />
           </Form.Item>
-          <Form.Item label="Additional Notes" name="additionalNotes">
+          <Form.Item label="Remarks" name="additionalRemarks">
             <Input.TextArea rows={4} />
           </Form.Item>
           <Form.Item label="Vehicle Make" name="currentVehicleMake">
@@ -126,7 +149,9 @@ const ChangeOwnership = () => {
           onClick={goBackToDashboard}
           style={{ fontSize: 24, cursor: 'pointer', color: '#4CAF50', marginRight: 10 }}
         />
-        <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#4CAF50', textAlign: 'center', flexGrow: 1 }}>Change of Ownership</h2>
+        <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#4CAF50', textAlign: 'center', flexGrow: 1 }}>
+          Change of Ownership
+        </h2>
       </div>
 
       <Steps current={currentStep} size="small" style={{ marginBottom: 20 }} className="custom-steps">
@@ -153,6 +178,34 @@ const ChangeOwnership = () => {
           </Button>
         )}
       </div>
+
+      <style>
+        {`
+          /* Change the progress bar and step title color */
+          .custom-steps .ant-steps-item-process .ant-steps-item-icon,
+          .custom-steps .ant-steps-item-finish .ant-steps-item-icon {
+            background-color: #4CAF50;
+          }
+
+          .custom-steps .ant-steps-item-title {
+            color: #4CAF50;
+          }
+
+          /* Change input, select, and textarea focus and hover outlines to green */
+          .ant-input:hover,
+          .ant-input:focus,
+          .ant-select-selector:hover,
+          .ant-select-selector:focus,
+          .ant-input-focused,
+          .ant-select-focused .ant-select-selector,
+          .ant-input-affix-wrapper-focused,
+          .ant-input-affix-wrapper:hover,
+          .ant-input-affix-wrapper:focus {
+            border-color: #4CAF50 !important;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+          }
+        `}
+      </style>
     </div>
   );
 };

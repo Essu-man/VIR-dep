@@ -117,14 +117,14 @@ const styles = {
     marginBottom: '20px',
   },
   logo: {
-    height: '60px',
-    width: '60px',
+    height: '100px',
+    width: '100px',
   },
   virText: {
     fontSize: '1.2rem',
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: '30px',
+    marginBottom: '280px',
     textAlign: 'center',
   },
   navButtons: {
@@ -132,6 +132,7 @@ const styles = {
     flexDirection: 'column',
     gap: '15px',
     width: '100%',
+    marginBottom: '230px',
   },
   navButton: {
     color: '#000',
