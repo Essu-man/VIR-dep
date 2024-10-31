@@ -43,38 +43,7 @@ const ChangeOwnership = () => {
           <Form.Item label="TIN" name="currentTin">
             <Input />
           </Form.Item>
-          <Form.Item label="Vehicle Make" name="currentVehicleMake">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Chassis Number" name="currentChassis">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Body Type" name="currentBodyType">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Vehicle Use" name="currentVehicleUse">
-            <Select>
-              <Option value="private">Private</Option>
-              <Option value="commercial">Commercial</Option>
-            </Select>
-          </Form.Item>
-          <Form.Item label="Year of Manufacture" name="currentYearOfManufacture">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Cubic Capacity" name="currentCubicCapacity">
-            <Input />
-          </Form.Item>
-          <Form.Item label="No. of Cylinders" name="currentCylinders">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Fuel Type" name="currentFuelType">
-            <Select>
-              <Option value="diesel">Diesel</Option>
-              <Option value="petrol">Petrol</Option>
-              <Option value="lpg">LPG</Option>
-              <Option value="electric">Electric</Option>
-            </Select>
-          </Form.Item>
+
         </Form>
       ),
     },
@@ -112,6 +81,38 @@ const ChangeOwnership = () => {
           </Form.Item>
           <Form.Item label="Additional Notes" name="additionalNotes">
             <Input.TextArea rows={4} />
+          </Form.Item>
+          <Form.Item label="Vehicle Make" name="currentVehicleMake">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Chassis Number" name="currentChassis">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Body Type" name="currentBodyType">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Vehicle Use" name="currentVehicleUse">
+            <Select>
+              <Option value="private">Private</Option>
+              <Option value="commercial">Commercial</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label="Year of Manufacture" name="currentYearOfManufacture">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Cubic Capacity" name="currentCubicCapacity">
+            <Input />
+          </Form.Item>
+          <Form.Item label="No. of Cylinders" name="currentCylinders">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Fuel Type" name="currentFuelType">
+            <Select>
+              <Option value="diesel">Diesel</Option>
+              <Option value="petrol">Petrol</Option>
+              <Option value="lpg">LPG</Option>
+              <Option value="electric">Electric</Option>
+            </Select>
           </Form.Item>
         </Form>
       ),
