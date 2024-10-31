@@ -43,7 +43,7 @@ const Dashboard = () => {
 
         <div style={styles.profileContainer}>
           <AccountCircle style={styles.profileIcon} />
-          <span style={styles.profileName}>John Doe</span>
+          <span style={styles.profileName}>Lys</span>
         </div>
       </aside>
 
