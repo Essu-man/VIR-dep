@@ -44,7 +44,7 @@ const Dashboard = () => {
 
       <main style={styles.mainContent}>
         <div style={styles.header}>
-          <h1 style={styles.pageTitle}>Members</h1>
+          <h1 style={styles.pageTitle}>Records</h1>
           <Button
             variant="contained"
             color="primary"
@@ -136,7 +136,7 @@ const styles = {
     fontSize: '0.75rem',
     textTransform: 'uppercase',
     backgroundColor: '#ffffff',
-    borderRadius: '20px',
+    borderRadius: '30px',
     padding: '10px 15px',
     width: '100%',
     display: 'flex',
