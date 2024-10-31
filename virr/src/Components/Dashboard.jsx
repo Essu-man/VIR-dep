@@ -21,7 +21,7 @@ const Dashboard = () => {
     { id: 1, name: 'Dennis Castillo', position: 'Coach', email: 'deniscastillo@yahoo.com', phone: '412-955-3101' },
     { id: 2, name: 'Lettie Jimenez', position: 'Admin', email: 'jimenez@yahoo.com', phone: '795-513-3872' },
     { id: 3, name: 'Craig Perkins', position: 'Manager', email: 'cperkins@hotmail.com', phone: '758-233-9039' },
-    // Add more rows as needed
+
   ];
 
   return (
@@ -71,7 +71,6 @@ const Dashboard = () => {
           </Table>
         </TableContainer>
 
-        {/* Pagination */}
         <Pagination count={10} page={page} onChange={handlePageChange} style={styles.pagination} />
       </main>
     </div>
@@ -86,7 +85,7 @@ const styles = {
   },
   sidebar: {
     width: '250px',
-    backgroundColor: '#27293D',
+    backgroundColor: '#4CAF50',
     color: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
@@ -113,13 +112,13 @@ const styles = {
     width: '80%',
   },
   navButton: {
-    color: '#ffffff',
+    color: '#000',
     fontSize: '0.9rem',
     textTransform: 'lowercase',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#fff',
     borderRadius: '8px',
-    padding: '10px 10px',
-    width: '100%',
+    padding: '5px 5px',
+    width: '90%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
