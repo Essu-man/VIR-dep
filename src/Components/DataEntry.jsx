@@ -28,7 +28,7 @@ const ChangeOwnership = () => {
           {...formItemLayout}
           style={{
             backgroundColor: '#F5F5F5',
-            padding: 20,
+            padding: '20px 40px',
             borderRadius: 12,
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           }}
@@ -61,7 +61,7 @@ const ChangeOwnership = () => {
           {...formItemLayout}
           style={{
             backgroundColor: '#F5F5F5',
-            padding: 20,
+            padding: '20px 40px',
             borderRadius: 12,
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           }}
@@ -94,7 +94,7 @@ const ChangeOwnership = () => {
           {...formItemLayout}
           style={{
             backgroundColor: '#F5F5F5',
-            padding: 20,
+            padding: '20px 40px',
             borderRadius: 12,
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           }}
@@ -143,13 +143,13 @@ const ChangeOwnership = () => {
   ];
 
   return (
-    <div style={{ width: '60%', margin: '0 auto' }}>
+    <div style={{ width: '55%', margin: '0 auto', height:'40px', }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
         <ArrowLeftOutlined
           onClick={goBackToDashboard}
-          style={{ fontSize: 24, cursor: 'pointer', color: '#4CAF50', marginRight: 10 }}
+          style={{ fontSize: 24, cursor: 'pointer', color: '#000', marginRight: 15 }}
         />
-        <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#4CAF50', textAlign: 'center', flexGrow: 1 }}>
+        <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#000', textAlign: 'center', flexGrow: 1 }}>
           Change of Ownership
         </h2>
       </div>
@@ -181,26 +181,23 @@ const ChangeOwnership = () => {
 
       <style>
         {`
-          /* Change the progress bar and step title color */
-          .custom-steps .ant-steps-item-process .ant-steps-item-icon,
-          .custom-steps .ant-steps-item-finish .ant-steps-item-icon {
-            background-color: #4CAF50;
+          /* Step circles and tick icons in green */
+          .ant-steps-item-icon {
+            background-color: #4CAF50 !important;
+            border-color: #4CAF50 !important;
+          }
+          .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+            color: white !important;
           }
 
-          .custom-steps .ant-steps-item-title {
-            color: #4CAF50;
+          /* Active step circle outline in green */
+          .ant-steps-item-active .ant-steps-item-icon {
+            border-color: #4CAF50 !important;
           }
 
-          /* Change input, select, and textarea focus and hover outlines to green */
-          .ant-input:hover,
-          .ant-input:focus,
-          .ant-select-selector:hover,
-          .ant-select-selector:focus,
-          .ant-input-focused,
-          .ant-select-focused .ant-select-selector,
-          .ant-input-affix-wrapper-focused,
-          .ant-input-affix-wrapper:hover,
-          .ant-input-affix-wrapper:focus {
+          /* Form input focus outline in green */
+          .ant-input:focus, .ant-input:hover,
+          .ant-select-focused .ant-select-selector {
             border-color: #4CAF50 !important;
             box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
           }
