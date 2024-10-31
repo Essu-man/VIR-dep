@@ -63,8 +63,10 @@ const Dashboard = () => {
           <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
             Change of Ownership
           </Button>
-          <Button style={styles.navButton} startIcon={<SupervisorAccount />} onClick={() => alert("Admin clicked")}>
-            Admin
+
+          <Button style={styles.navButton} startIcon={<SupervisorAccount />}onClick={() => navigate('/src/Components/Admin.jsx')}
+          >
+          Admin
           </Button>
           <Button style={styles.navButton} startIcon={<Logout />} onClick={() => alert("Logout clicked")}>
             Logout
