@@ -1,5 +1,5 @@
 import { Add, Logout } from '@mui/icons-material';
-import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, } from '@mui/material';
+import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -40,8 +40,6 @@ const Dashboard = () => {
             Logout
           </Button>
         </div>
-
-
       </aside>
 
       <main style={styles.mainContent}>
@@ -49,7 +47,7 @@ const Dashboard = () => {
           <h1 style={styles.pageTitle}>Members</h1>
           <Button
             variant="contained"
-            color="#4CAF50"
+            color="primary"
             startIcon={<Add />}
             style={styles.addButton}
             onClick={() => alert("Add Members clicked")}
@@ -104,17 +102,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '30px 20px',
+    padding: '20px 20px',
     boxSizing: 'border-box',
     boxShadow: '2px 0 5px rgba(0, 0, 0, 0.2)',
     borderRadius: '0 20px 20px 0',
-    justifyContent: 'space-between',
   },
   logoContainer: {
     backgroundColor: '#fff',
     borderRadius: '50%',
     padding: '10px',
-    marginBottom: '20px',
+    marginBottom: '10px',
   },
   logo: {
     height: '100px',
@@ -124,7 +121,7 @@ const styles = {
     fontSize: '1.2rem',
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: '280px',
+    marginBottom: '210px',
     textAlign: 'center',
   },
   navButtons: {
@@ -132,11 +129,11 @@ const styles = {
     flexDirection: 'column',
     gap: '15px',
     width: '100%',
-    marginBottom: '230px',
+    marginBottom: '20px',
   },
   navButton: {
     color: '#000',
-    fontSize: '1rem',
+    fontSize: '0.75rem',
     textTransform: 'uppercase',
     backgroundColor: '#ffffff',
     borderRadius: '20px',
@@ -149,13 +146,6 @@ const styles = {
       backgroundColor: '#e0e0e0',
     },
   },
-  profileContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    marginTop: '20px',
-  },
-
   mainContent: {
     flex: 1,
     padding: '20px',
