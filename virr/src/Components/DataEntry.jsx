@@ -23,10 +23,37 @@ const ChangeOwnership = () => {
           <Form.Item label="Full Name" name="currentFullName">
             <Input />
           </Form.Item>
-          <Form.Item label="Address" name="currentAddress">
+          <Form.Item label=" Postal Address" name="currentAddress">
             <Input />
           </Form.Item>
-          <Form.Item label="Model Type" name="currentModel">
+          <Form.Item label=" Residential / Location Address" name="currentAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Contact" name="currentContact">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" E-mail" name="currentEmail">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Tin " name="currentTin">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Vehicle Make " name="currentvehiclemake">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Chasis Number " name="currentChasis">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Body Type " name="currentBodyType">
+            <Input />
+          </Form.Item>
+          <Form.Item label="vehicle Use" name="currentVehicle">
+            <Select>
+              <Select.Option value="private">Private</Select.Option>
+              <Select.Option value="commercial">Commercial</Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label=" Year of manufacture" name="currentmanufacture">
             <Input />
           </Form.Item>
           <Form.Item label="Cubic Capacity" name="currentCubic">
@@ -35,19 +62,14 @@ const ChangeOwnership = () => {
           <Form.Item label="No. of Cylinders" name="currentCylinder">
             <Input />
           </Form.Item>
-          <Form.Item label="Fuel Type" name="currentFuel">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Phone" name="currentPhone">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Purpose" name="currentPurpose">
+           <Form.Item label="Fuel Type" name="currentFuelType">
             <Select>
-              <Select.Option value="private">Private</Select.Option>
-              <Select.Option value="commercial">Commercial</Select.Option>
+              <Select.Option value="Diesel">Diesel</Select.Option>
+              <Select.Option value="Petrol">Petrol</Select.Option>
+              <Select.Option value="LPG">LPG</Select.Option>
+              <Select.Option value="Electric">Electric</Select.Option>
             </Select>
           </Form.Item>
-
         </Form>
       ),
     },
@@ -55,40 +77,62 @@ const ChangeOwnership = () => {
       title: 'Previous Owner Information',
       content: (
         <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
-          <Form.Item label="Name" name="newName">
+          <Form.Item label="Full Name" name="currentFullName">
             <Input />
           </Form.Item>
-          <Form.Item label="Address" name="newAddress">
+          <Form.Item label=" Postal Address" name="currentAddress">
             <Input />
           </Form.Item>
-          <Form.Item label="Model Type" name="newModel">
+          <Form.Item label=" Residential / Location Address" name="currentAddress">
             <Input />
           </Form.Item>
-          <Form.Item label="Fuel Type" name="newFuel">
+          <Form.Item label=" Contact" name="currentContact">
             <Input />
+          </Form.Item>
+          <Form.Item label=" E-mail" name="currentEmail">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Tin " name="currentTin">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Vehicle Make " name="currentvehiclemake">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Chasis Number " name="currentChasis">
+            <Input />
+          </Form.Item>
+          <Form.Item label=" Body Type " name="currentBodyType">
+            <Input />
+          </Form.Item>
+          <Form.Item label="vehicle Use" name="currentVehicle">
+            <Select>
+              <Select.Option value="private">Private</Select.Option>
+              <Select.Option value="commercial">Commercial</Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label=" Year of manufacture" name="currentmanufacture">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Cubic Capacity" name="currentCubic">
+            <Input />
+          </Form.Item>
+          <Form.Item label="No. of Cylinders" name="currentCylinder">
+            <Input />
+          </Form.Item>
+           <Form.Item label="Fuel Type" name="currentFuelType">
+            <Select>
+              <Select.Option value="Diesel">Diesel</Select.Option>
+              <Select.Option value="Petrol">Petrol</Select.Option>
+              <Select.Option value="LPG">LPG</Select.Option>
+              <Select.Option value="Electric">Electric</Select.Option>
+            </Select>
           </Form.Item>
         </Form>
       ),
     },
     {
       title: 'Additional Owner Information',
-      content: (
-        <Form {...formItemLayout} style={{ backgroundColor: '#D3D3D3', padding: 20, borderRadius: 10 }}>
-          <Form.Item label="Name" name="additionalName">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Address" name="additionalAddress">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Model Type" name="additionalModel">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Fuel Type" name="additionalFuel">
-            <Input />
-          </Form.Item>
 
-        </Form>
-      ),
     },
   ];
 
