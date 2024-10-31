@@ -147,7 +147,7 @@ const ChangeOwnership = () => {
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
         <ArrowLeftOutlined
           onClick={goBackToDashboard}
-          style={{ fontSize: 24, cursor: 'pointer', color: '#000', marginRight: 15 }}
+          style={{ fontSize: 20, cursor: 'pointer', color: '#000', marginRight: 15 }}
         />
         <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#000', textAlign: 'center', flexGrow: 1 }}>
           Change of Ownership
