@@ -1,4 +1,4 @@
-import { Logout } from '@mui/icons-material';
+import { AccountCircle, Add, Logout } from '@mui/icons-material';
 import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
@@ -21,36 +21,52 @@ const Dashboard = () => {
     { id: 1, name: 'Dennis Castillo', position: 'Coach', email: 'deniscastillo@yahoo.com', phone: '412-955-3101' },
     { id: 2, name: 'Lettie Jimenez', position: 'Admin', email: 'jimenez@yahoo.com', phone: '795-513-3872' },
     { id: 3, name: 'Craig Perkins', position: 'Manager', email: 'cperkins@hotmail.com', phone: '758-233-9039' },
-
   ];
 
   return (
     <div style={styles.dashboard}>
       <aside style={styles.sidebar}>
         <div style={styles.logoContainer}>
-          <img src={logo} alt="VIR Logo" style={styles.logo} />
+          <img src={logo} alt="DVLA Logo" style={styles.logo} />
         </div>
+
+        <span style={styles.virText}>Vehicle Inspection and Registration</span>
 
         <div style={styles.navButtons}>
           <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
             change of ownership
           </Button>
-
           <Button style={styles.navButton} startIcon={<Logout />}>
             logout
           </Button>
         </div>
+
+        <div style={styles.profileContainer}>
+          <AccountCircle style={styles.profileIcon} />
+          <span style={styles.profileName}>John Doe</span>
+        </div>
       </aside>
 
       <main style={styles.mainContent}>
-        <h1 style={styles.pageTitle}>Members</h1>
+        <div style={styles.header}>
+          <h1 style={styles.pageTitle}>Members</h1>
+          <Button
+            variant="contained"
+            color="success"
+            startIcon={<Add />}
+            style={styles.addButton}
+            onClick={() => alert("Add Members clicked")}
+          >
+            Add Members
+          </Button>
+        </div>
 
         {/* Table */}
         <TableContainer component={Paper} style={styles.tableContainer}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
+                <TableCell>#</TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Position</TableCell>
                 <TableCell>Email</TableCell>
@@ -94,16 +110,24 @@ const styles = {
     boxSizing: 'border-box',
     boxShadow: '2px 0 5px rgba(0, 0, 0, 0.2)',
     borderRadius: '5%',
+    justifyContent: 'space-between',
   },
   logoContainer: {
     backgroundColor: '#fff',
     borderRadius: '50%',
     padding: '10px',
-    marginBottom: '30px',
+    marginBottom: '10px',
   },
   logo: {
     height: '60px',
     width: '60px',
+  },
+  virText: {
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: '30px',
+    textTransform: 'lowercase',
   },
   navButtons: {
     display: 'flex',
@@ -117,32 +141,45 @@ const styles = {
     textTransform: 'lowercase',
     backgroundColor: '#fff',
     borderRadius: '8px',
-    padding: '5px 5px',
-    width: '90%',
+    padding: '10px',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  profileContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: '10px',
-    transition: 'background-color 0.3s ease',
+    flexDirection: 'column',
+    marginBottom: '20px',
   },
-  navButtonHover: {
-    '&:hover': {
-      backgroundColor: '#388E3C',
-    },
+  profileIcon: {
+    fontSize: '2rem',
+  },
+  profileName: {
+    marginTop: '5px',
+    color: '#ffffff',
+    fontWeight: 'bold',
   },
   mainContent: {
     flex: 1,
     padding: '20px',
     backgroundColor: '#f8f9fa',
   },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '20px',
+  },
   pageTitle: {
     fontWeight: 'bold',
     fontSize: '1.5rem',
-    marginBottom: '20px',
     color: '#333',
   },
+  addButton: {
+    fontWeight: 'bold',
+  },
   tableContainer: {
-    marginTop: '20px',
     borderRadius: '8px',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
   },
