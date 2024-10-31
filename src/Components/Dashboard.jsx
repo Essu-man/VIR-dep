@@ -1,5 +1,5 @@
-import { AccountCircle, Add, Logout } from '@mui/icons-material';
-import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Add, Logout } from '@mui/icons-material';
+import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -34,17 +34,14 @@ const Dashboard = () => {
 
         <div style={styles.navButtons}>
           <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
-            change of ownership
+            Change of Ownership
           </Button>
-          <Button style={styles.navButton} startIcon={<Logout />}>
-            logout
+          <Button style={styles.navButton} startIcon={<Logout />} onClick={() => alert("Logout clicked")}>
+            Logout
           </Button>
         </div>
 
-        <div style={styles.profileContainer}>
-          <AccountCircle style={styles.profileIcon} />
-          <span style={styles.profileName}>Lys</span>
-        </div>
+
       </aside>
 
       <main style={styles.mainContent}>
@@ -52,7 +49,7 @@ const Dashboard = () => {
           <h1 style={styles.pageTitle}>Members</h1>
           <Button
             variant="contained"
-            color="success"
+            color="#4CAF50"
             startIcon={<Add />}
             style={styles.addButton}
             onClick={() => alert("Add Members clicked")}
@@ -66,7 +63,7 @@ const Dashboard = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>#</TableCell>
+                <TableCell></TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Position</TableCell>
                 <TableCell>Email</TableCell>
@@ -98,6 +95,7 @@ const styles = {
     display: 'flex',
     height: '100vh',
     backgroundColor: '#f0f2f5',
+    fontFamily: 'Arial, sans-serif',
   },
   sidebar: {
     width: '250px',
@@ -106,17 +104,17 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: '30px',
+    padding: '30px 20px',
     boxSizing: 'border-box',
     boxShadow: '2px 0 5px rgba(0, 0, 0, 0.2)',
-    borderRadius: '5%',
+    borderRadius: '0 20px 20px 0',
     justifyContent: 'space-between',
   },
   logoContainer: {
     backgroundColor: '#fff',
     borderRadius: '50%',
     padding: '10px',
-    marginBottom: '10px',
+    marginBottom: '20px',
   },
   logo: {
     height: '60px',
@@ -127,41 +125,36 @@ const styles = {
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: '30px',
-    textTransform: 'lowercase',
-      textAlign: 'center',
-      width: '100%',
+    textAlign: 'center',
   },
   navButtons: {
     display: 'flex',
     flexDirection: 'column',
     gap: '15px',
-    width: '80%',
+    width: '100%',
   },
   navButton: {
     color: '#000',
-    fontSize: '0.9rem',
-    textTransform: 'lowercase',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    padding: '10px',
+    fontSize: '1rem',
+    textTransform: 'uppercase',
+    backgroundColor: '#ffffff',
+    borderRadius: '20px',
+    padding: '10px 15px',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    transition: 'background-color 0.3s',
+    '&:hover': {
+      backgroundColor: '#e0e0e0',
+    },
   },
   profileContainer: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    marginBottom: '20px',
+    marginTop: '20px',
   },
-  profileIcon: {
-    fontSize: '2rem',
-  },
-  profileName: {
-    marginTop: '5px',
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
+
   mainContent: {
     flex: 1,
     padding: '20px',
