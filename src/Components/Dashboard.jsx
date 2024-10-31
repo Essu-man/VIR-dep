@@ -1,4 +1,4 @@
-import { Add, Delete, Edit, Logout } from '@mui/icons-material';
+import { Add, Delete, Edit, Logout, SupervisorAccount } from '@mui/icons-material';
 import {
   Button,
   Dialog,
@@ -62,6 +62,9 @@ const Dashboard = () => {
         <div style={styles.navButtons}>
           <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
             Change of Ownership
+          </Button>
+          <Button style={styles.navButton} startIcon={<SupervisorAccount />} onClick={() => alert("Admin clicked")}>
+            Admin
           </Button>
           <Button style={styles.navButton} startIcon={<Logout />} onClick={() => alert("Logout clicked")}>
             Logout
@@ -184,17 +187,17 @@ const styles = {
   navButtons: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px',
+    gap: '10px',
     width: '100%',
     marginBottom: '30px',
   },
   navButton: {
     color: '#000',
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     textTransform: 'uppercase',
     backgroundColor: '#ffffff',
     borderRadius: '20px',
-    padding: '10px 15px',
+    padding: '8px 12px',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
