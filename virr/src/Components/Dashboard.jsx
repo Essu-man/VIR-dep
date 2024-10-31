@@ -1,4 +1,4 @@
-// Dashboard.jsx
+import { Logout } from '@mui/icons-material';
 import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
@@ -17,25 +17,28 @@ const Dashboard = () => {
     setPage(value);
   };
 
-  // Dummy data
   const rows = [
     { id: 1, name: 'Dennis Castillo', position: 'Coach', email: 'deniscastillo@yahoo.com', phone: '412-955-3101' },
     { id: 2, name: 'Lettie Jimenez', position: 'Admin', email: 'jimenez@yahoo.com', phone: '795-513-3872' },
     { id: 3, name: 'Craig Perkins', position: 'Manager', email: 'cperkins@hotmail.com', phone: '758-233-9039' },
-    // Add more dummy data as needed
+    // Add more rows as needed
   ];
 
   return (
     <div style={styles.dashboard}>
       <aside style={styles.sidebar}>
-        <img src={logo} alt="VIR Logo" style={styles.logo} />
+        <div style={styles.logoContainer}>
+          <img src={logo} alt="VIR Logo" style={styles.logo} />
+        </div>
 
         <div style={styles.navButtons}>
           <Button style={styles.navButton} onClick={handleDataEntryNavigation}>
-            Data Entry
+            change of ownership
           </Button>
-          <Button style={styles.navButton}>Customization</Button>
-          <Button style={styles.navButton}>Logout</Button>
+
+          <Button style={styles.navButton} startIcon={<Logout />}>
+            logout
+          </Button>
         </div>
       </aside>
 
@@ -47,7 +50,7 @@ const Dashboard = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>#</TableCell>
+                <TableCell></TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Position</TableCell>
                 <TableCell>Email</TableCell>
@@ -78,22 +81,30 @@ const Dashboard = () => {
 const styles = {
   dashboard: {
     display: 'flex',
-    height: '95vh'
-
+    height: '100vh',
+    backgroundColor: '#f0f2f5',
   },
   sidebar: {
-    width: '220px',
-    backgroundColor: '#4CAF50',
+    width: '250px',
+    backgroundColor: '#27293D',
     color: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     paddingTop: '30px',
     boxSizing: 'border-box',
+    boxShadow: '2px 0 5px rgba(0, 0, 0, 0.2)',
+    borderRadius: '5%',
+  },
+  logoContainer: {
+    backgroundColor: '#fff',
+    borderRadius: '50%',
+    padding: '10px',
+    marginBottom: '30px',
   },
   logo: {
     height: '60px',
-    marginBottom: '30px',
+    width: '60px',
   },
   navButtons: {
     display: 'flex',
@@ -102,13 +113,23 @@ const styles = {
     width: '80%',
   },
   navButton: {
-    color: '#000',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    backgroundColor: '#fff',
+    color: '#ffffff',
+    fontSize: '0.9rem',
+    textTransform: 'lowercase',
+    backgroundColor: '#4CAF50',
     borderRadius: '8px',
-    padding: '10px 20px',
+    padding: '10px 10px',
     width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    gap: '10px',
+    transition: 'background-color 0.3s ease',
+  },
+  navButtonHover: {
+    '&:hover': {
+      backgroundColor: '#388E3C',
+    },
   },
   mainContent: {
     flex: 1,
@@ -124,6 +145,7 @@ const styles = {
   tableContainer: {
     marginTop: '20px',
     borderRadius: '8px',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
   },
   pagination: {
     display: 'flex',
