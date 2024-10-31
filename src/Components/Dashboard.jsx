@@ -128,6 +128,8 @@ const styles = {
     color: '#ffffff',
     marginBottom: '30px',
     textTransform: 'lowercase',
+      textAlign: 'center',
+      width: '100%',
   },
   navButtons: {
     display: 'flex',
