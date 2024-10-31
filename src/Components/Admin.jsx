@@ -1,21 +1,10 @@
-import {
-    List,
-    ListItem,
-    ListItemText,
-    Pagination,
-    Paper,
-    Switch,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Typography
-} from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
+import { IconButton, List, ListItem, ListItemText, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [systemLogs] = useState([
     { id: 1, action: 'Login', user: 'Admin', timestamp: '2024-10-31 10:30 AM' },
@@ -35,13 +24,16 @@ const Admin = () => {
 
   return (
     <div style={styles.adminContainer}>
-      <Typography variant="h4" style={styles.title}>Admin Panel</Typography>
+      <div style={styles.header}>
+        <IconButton onClick={() => navigate('/dashboard')}>
+          <ArrowBack style={styles.backArrow} />
+        </IconButton>
+        <Typography variant="h4" style={styles.title}>Admin Panel</Typography>
+      </div>
 
       {/* System Logs */}
       <div style={styles.section}>
-        <Typography variant="h6" style={styles.sectionTitle}>
-          Recent Activity Logs
-        </Typography>
+        <Typography variant="h6" style={styles.sectionTitle}>Recent Activity Logs</Typography>
         <TableContainer component={Paper} style={styles.tableContainer}>
           <Table>
             <TableHead>
@@ -68,9 +60,7 @@ const Admin = () => {
 
       {/* User Analytics */}
       <div style={styles.section}>
-        <Typography variant="h6" style={styles.sectionTitle}>
-          User Analytics
-        </Typography>
+        <Typography variant="h6" style={styles.sectionTitle}>User Analytics</Typography>
         <List>
           <ListItem>
             <ListItemText primary="Active Users" secondary={analytics.activeUsers} />
@@ -80,27 +70,6 @@ const Admin = () => {
           </ListItem>
           <ListItem>
             <ListItemText primary="Actions Performed" secondary={analytics.actionsPerformed} />
-          </ListItem>
-        </List>
-      </div>
-
-      {/* System Settings */}
-      <div style={styles.section}>
-        <Typography variant="h6" style={styles.sectionTitle}>
-          System Settings
-        </Typography>
-        <List>
-          <ListItem>
-            <ListItemText primary="Email Notifications" />
-            <Switch defaultChecked color="primary" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Data Backup Enabled" />
-            <Switch color="primary" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Dark Theme" />
-            <Switch color="primary" />
           </ListItem>
         </List>
       </div>
@@ -119,10 +88,20 @@ const styles = {
     height: '100vh',
     backgroundColor: '#f5f5f5',
   },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: '20px',
+  },
+  backArrow: {
+    fontSize: '2rem',
+    color: '#4CAF50',
+    marginRight: '10px',
+  },
   title: {
     fontSize: '2rem',
     fontWeight: 'bold',
-    marginBottom: '20px',
   },
   section: {
     marginBottom: '30px',
