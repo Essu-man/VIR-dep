@@ -104,7 +104,7 @@ const ChangeOwnership = () => {
       ),
     },
     {
-      title: 'Additional Owner Information',
+      title: 'Vehicle Information',
       content: (
         <Form {...formItemLayout} style={{ backgroundColor: '#F5F5F5', padding: 20, borderRadius: 12, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
           <Form.Item label="Transfer Date" name="transferDate">
