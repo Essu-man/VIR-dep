@@ -1,4 +1,4 @@
-
+<?php
 function check_permission($user_id, $permission) {
   include('db_connection.php');
   $stmt = $conn->prepare("SELECT roles.permissions FROM users JOIN roles ON users.role_id = roles.id WHERE users.id = ?");
