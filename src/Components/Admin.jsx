@@ -1,5 +1,5 @@
 import { ArrowBack } from '@mui/icons-material';
-import { IconButton, List, ListItem, ListItemText, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, IconButton, List, ListItem, ListItemText, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,12 +11,47 @@ const Admin = () => {
     { id: 2, action: 'Edited User Role', user: 'Lettie Jimenez', timestamp: '2024-10-30 02:15 PM' },
     { id: 3, action: 'Deleted Record', user: 'Craig Perkins', timestamp: '2024-10-29 09:45 AM' },
   ]);
-
   const [analytics] = useState({
     activeUsers: 20,
     averageSession: '15 mins',
     actionsPerformed: 35,
   });
+
+  // Invitation form state
+  const [inviteDetails, setInviteDetails] = useState({
+    email: '',
+    name: '',
+    role: '',
+  });
+
+  // Handle input change for invite form
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInviteDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  // Send invitation function
+  const sendInvitation = async () => {
+    try {
+      const response = await fetch('/api/invite_user.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(inviteDetails),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert('Invitation sent successfully');
+        setInviteDetails({ email: '', name: '', role: '' }); // Reset form
+      } else {
+        alert('Failed to send invitation');
+      }
+    } catch (error) {
+      console.error('Error sending invitation:', error);
+    }
+  };
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -74,6 +109,38 @@ const Admin = () => {
         </List>
       </div>
 
+      {/* Invitation Form */}
+      <div style={styles.section}>
+        <Typography variant="h6" style={styles.sectionTitle}>Invite a New User</Typography>
+        <TextField
+          label="Email"
+          name="email"
+          value={inviteDetails.email}
+          onChange={handleInputChange}
+          fullWidth
+          style={styles.input}
+        />
+        <TextField
+          label="Name"
+          name="name"
+          value={inviteDetails.name}
+          onChange={handleInputChange}
+          fullWidth
+          style={styles.input}
+        />
+        <TextField
+          label="Role"
+          name="role"
+          value={inviteDetails.role}
+          onChange={handleInputChange}
+          fullWidth
+          style={styles.input}
+        />
+        <Button variant="contained" color="primary" onClick={sendInvitation} style={styles.inviteButton}>
+          Send Invitation
+        </Button>
+      </div>
+
       <Pagination count={5} page={page} onChange={handlePageChange} style={styles.pagination} />
     </div>
   );
@@ -96,12 +163,13 @@ const styles = {
   },
   backArrow: {
     fontSize: '2rem',
-    color: '#4CAF50',
+    color: '#000',
     marginRight: '10px',
   },
   title: {
     fontSize: '2rem',
     fontWeight: 'bold',
+    marginRight: '10px',
   },
   section: {
     marginBottom: '30px',
@@ -121,6 +189,12 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     marginTop: '20px',
+  },
+  input: {
+    marginBottom: '10px',
+  },
+  inviteButton: {
+    marginTop: '10px',
   },
 };
 
