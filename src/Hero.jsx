@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from './assets/dv-logo.png';
@@ -12,7 +13,7 @@ function Hero() {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost/your-backend-path/login.php', {
+      const response = await fetch('http://localhost/xampp/VIR-dep/Backend/Login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,8 +29,10 @@ function Hero() {
         setErrorMessage(data.message || 'Invalid credentials');
       }
     } catch (error) {
+      console.error('Login error:', error);
       setErrorMessage('An error occurred. Please try again later.');
     }
+
   };
 
   return (
