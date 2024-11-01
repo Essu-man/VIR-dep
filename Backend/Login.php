@@ -1,130 +1,57 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import logo from './assets/dv-logo.png';
+<?php
+// Set response type to JSON
+header("Content-Type: application/json");
 
-function Hero() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate();
+// Database connection variables
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "vir-admin 1";
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+// Create a connection
+$conn = new mysqli($host, $username, $password, $dbname);
 
-    try {
-      const response = await fetch('http://localhost/your-backend-path/login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (data.status === 'success') {
-        navigate('/Dashboard');
-      } else {
-        setErrorMessage(data.message || 'Invalid credentials');
-      }
-    } catch (error) {
-      setErrorMessage('An error occurred. Please try again later.');
-    }
-  };
-
-  return (
-    <div style={styles.wrapper}>
-      <div style={styles.container}>
-        <img src={logo} alt="Logo" style={styles.logo} />
-        <form style={styles.form} onSubmit={handleLogin}>
-          <div style={styles.formGroup}>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="Email"
-              style={styles.input}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div style={styles.formGroup}>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              placeholder="Password"
-              style={styles.input}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          {errorMessage && <p style={styles.error}>{errorMessage}</p>}
-          <button type="submit" style={styles.button}>Login</button>
-        </form>
-      </div>
-    </div>
-  );
+// Check connection
+if ($conn->connect_error) {
+    echo json_encode(["status" => "error", "message" => "Connection failed"]);
+    exit();
 }
 
-const styles = {
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#04A84A',
-  },
-  container: {
-    maxWidth: '400px',
-    width: '90%',
-    padding: '20px',
-    backgroundColor: '#fff',
-    borderRadius: '12px',
-    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
-    textAlign: 'center',
-  },
-  logo: {
-    height: '80px',
-    marginBottom: '20px',
-  },
-  form: {
-    marginTop: '20px',
-  },
-  formGroup: {
-    marginBottom: '20px',
-  },
-  input: {
-    width: '90%',
-    padding: '10px',
-    border: '1px solid #d1d5db',
-    borderRadius: '8px',
-    fontSize: '1rem',
-    color: '#333',
-    outline: 'none',
-  },
-  button: {
-    width: '100%',
-    padding: '12px',
-    backgroundColor: '#000',
-    color: 'white',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s',
-  },
-  error: {
-    color: 'red',
-    marginBottom: '10px',
-  },
-};
+// Get JSON data from request
+$data = json_decode(file_get_contents("php://input"), true);
 
-export default Hero;
+// Extract email and password from the request
+$email = $data['email'] ?? '';
+$pass = $data['password'] ?? '';
+
+// Check if email and password are provided
+if (empty($email) || empty($pass)) {
+    echo json_encode(["status" => "error", "message" => "Email and password are required"]);
+    exit();
+}
+
+// Query to get the user by email
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Check if user exists
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+
+    // Verify password
+    if (password_verify($pass, $user['password'])) {
+        echo json_encode(["status" => "success", "message" => "Login successful"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Invalid credentials"]);
+    }
+} else {
+    echo json_encode(["status" => "error", "message" => "Invalid credentials"]);
+}
+
+// Close connections
+$stmt->close();
+$conn->close();
+?>
